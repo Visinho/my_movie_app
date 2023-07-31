@@ -57,7 +57,7 @@ const Auth = () => {
               {variant === "login" ? "Log In" : "Sign Up"}
             </button>
             <p className="text-neutral-500 mt-12">
-              {variant === "login" ? "First time using muu-V-iz?" : "Already have an account?"}
+              {variant === "login" ? "First time using muu-V-is?" : "Already have an account?"}
               <span
                 onClick={toggleVariant}
                 className="text-white ml-0.5 hover:underline cursor-pointer"
