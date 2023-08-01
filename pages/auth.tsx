@@ -98,6 +98,7 @@ const Auth = () => {
               >
                 <FaGithub size={30} />
               </div>
+              {/* Google login */}
               <div
                 onClick={() => signIn("google", { callbackUrl: "/" })}
                 className="w-10 h-10 bg-white rounded-full flex items-center justify-center cursor-pointer hover:opacity-50 transition"
