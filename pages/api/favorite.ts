@@ -1,6 +1,5 @@
 import prismadb from "@/lib/prismadb";
 import { NextApiRequest, NextApiResponse } from "next";
-// import { without } from "lodash";
 import { without } from "lodash";
 import getUser from "@/lib/getUser";
 
