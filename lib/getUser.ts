@@ -9,7 +9,7 @@ const getUser = async(email: string) => {
         }
     });
 
-    return { user };
+    return user;
 }
 
 export default getUser;

@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { movieId, email } = req.body; //Email
+  const { movieId, email, favoriteIds } = req.body; 
   try {
     if (req.method === "POST") {
 
@@ -35,7 +35,6 @@ export default async function handler(
     }
 
     if (req.method === "DELETE") {
-      const user: any = getUser(email);
 
       const existingMovie = await prismadb.movie.findUnique({
         where: {
@@ -47,7 +46,7 @@ export default async function handler(
         throw new Error("Movie does not exist!");
       }
 
-      const updatedFavoriteIds = without(user.favoriteIds, movieId);
+      const updatedFavoriteIds = without(favoriteIds, movieId);
 
       const updatedUser = await prismadb.user.update({
         where: {
@@ -57,7 +56,7 @@ export default async function handler(
           favoriteIds: updatedFavoriteIds,
         },
       });
-      return res.status(200).json(updatedUser);
+      return res.status(200).json({updatedUser, updatedFavoriteIds});
     }
     return res.status(405).end();
   } catch (error) {
